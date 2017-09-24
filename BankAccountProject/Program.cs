@@ -13,11 +13,13 @@ namespace BankAccountProject
         private static float clientPhoneNumber;
         private static string clientRepresentative;
         private static int num;
-        private static string userSecondChoice;
-
         static void Main(string[] args)
-        {
-             Client client2 = new Client(clientName, clientPhoneNumber, clientAddress, clientRepresentative);
+        {   
+            //instantiate below 
+            Client client2 = new Client(clientName, clientPhoneNumber, clientAddress, clientRepresentative);
+            CheckingAccount checking1 = new CheckingAccount();
+            SavingsAccount savings1 = new SavingsAccount();
+
             do
             {
                 Console.WriteLine("Select the number of your choice: ");
@@ -40,32 +42,63 @@ namespace BankAccountProject
                 if (userChoice == "1")
                 {
                     client2.ClientWork();
+                    Console.WriteLine();
                 }
                 else if (userChoice == "2")
 
                 {
-                    Console.WriteLine("A - Checking Balance");
-                    Console.WriteLine("B - Savings Balance");
-                    if (userSecondChoice == "1")
+                    Console.WriteLine("1 - Checking Balance");
+                    Console.WriteLine("2 - Savings Balance");
+                    int accountSelection = int.Parse(Console.ReadLine());
+                    if (accountSelection == 1)
                     {
-                        Console.WriteLine("100");
+                        checking1.CheckBalance();
+                        Console.WriteLine();
                     }
-                    else if (userSecondChoice == "2")
+                    else if (accountSelection == 2)
                     {
-                        Console.WriteLine("150");
+                        savings1.CheckBalance();
+                        Console.WriteLine();
+                    }
+
+                }
+                else if (userChoice == "3")
+                {
+                    Console.WriteLine("1 - Checking Deposit");
+                    Console.WriteLine("2 - Savings Deposit");
+                    int withdrawalSelection = int.Parse(Console.ReadLine());
+                    if (withdrawalSelection == 1)
+                    {
+                        checking1.AccountDeposit();
+                        Console.WriteLine();
+                    }
+                    else if (withdrawalSelection == 2)
+                    {
+                        savings1.AccountDeposit();
+                        Console.WriteLine();
                     }
                 }
-                //else if (userChoice == "3")
-                //{
-                //    storm2.SleepyTime();
-                //}
-                //else if (userChoice == "4")
-                //{
-                //    storm2.BathRoomBreak();
-                //}
+                else if (userChoice == "4")
+                {
+                    Console.WriteLine("1 - Checking Withdrawal");
+                    Console.WriteLine("2 - Savings Withdrawal");
+                    int withdrawalSelection = int.Parse(Console.ReadLine());
+                    if (withdrawalSelection == 1)
+                    {
+                        checking1.AccountWithdrawal();
+                        Console.WriteLine();
+                    }
+                    else if (withdrawalSelection == 2)
+                    {
+                        savings1.AccountWithdrawal();
+                        Console.WriteLine();
+                    }
+                }
 
 
             } while (true);
         }
+
+        
     }
 }

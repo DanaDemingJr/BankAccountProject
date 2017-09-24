@@ -18,6 +18,9 @@ namespace BankAccountProject
             get { return this.clientName; }
         }
 
+        public char UserName { get; internal set; }
+        public char AddressLine1 { get; internal set; }
+
         public Client(string clientName, float clientPhoneNumber, string clientAddress, string clientRepresentative)
         {
             this.clientName = clientName;
@@ -43,6 +46,9 @@ namespace BankAccountProject
             Console.WriteLine();
         }
 
-
+        internal void PrintClientInfo()
+        {
+            throw new NotImplementedException();
+        }
     }
     }

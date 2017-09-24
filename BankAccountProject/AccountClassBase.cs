@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankAccountProject
 {
-    class AccountClassBase
+    abstract class AccountClassBase
     {
         protected double accountNumber;
         protected double savingsAccountBalance;
@@ -42,6 +42,15 @@ namespace BankAccountProject
             this.accountType = accountType;
         }
 
-        //public virtual void 
+        public virtual void AccountDeposit()
+        {
+
+        }
+
+        public virtual void AccountWithdrawal()
+        {
+
+        }
+
     }
 }
